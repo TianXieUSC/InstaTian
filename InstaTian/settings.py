@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # connect to the app that I have built
     'Insta',
+    'imagekit',
 ]
 
 MIDDLEWARE = [
