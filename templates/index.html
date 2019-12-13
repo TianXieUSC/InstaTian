@@ -1,0 +1,19 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>posts</title>
+</head>
+<body>
+<div>
+    {% for post in object_list %}
+{#        find the url name "post_detail", post.id is the paratmeter for the url#}
+        <a href="{% url 'post_detail' post.id %}">
+            <img src="/{{ post.image }}" width="500" height="400">
+        </a>
+    {% endfor %}
+</div>
+</body>
+</html>

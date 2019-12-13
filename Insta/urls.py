@@ -16,8 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from Insta.views import MyView
+from Insta.views import MyView, PostsView, PostDetailView
 
 urlpatterns = [
-    path('', MyView.as_view(), name='my_view')
+    path('', MyView.as_view(), name='my_view'),
+    path('posts/', PostsView.as_view(), name='posts'),
+    path('posts/<int:pk>/', PostDetailView.as_view(), name='post_detail'),
 ]
