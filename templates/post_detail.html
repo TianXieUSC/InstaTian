@@ -5,7 +5,15 @@
     <title>Detail</title>
 </head>
 <body>
+
+<div>
+    <a href="{% url 'update_post' object.id %}"> Edit Post </a>
+    <a href="{% url 'delete_post' object.id %}"> Delete Post </a>
+</div>
+
+{#call the variable "object" passed from view#}
 <p> {{ object.title }} </p>
 <img src="/{{ object.image }}" width="500" height="300">
+
 </body>
 </html>

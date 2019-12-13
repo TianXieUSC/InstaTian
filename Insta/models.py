@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from imagekit.models import ProcessedImageField
 
 
@@ -13,3 +14,10 @@ class Post(models.Model):
         blank=True,
         null=True,
     )
+
+    # once post has done, call this function
+    def get_absolute_url(self):
+        # reverse function will go to urls.py to look for the url name
+        return reverse("post_detail", args=[str(self.id)])
+
+

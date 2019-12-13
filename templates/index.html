@@ -7,13 +7,22 @@
     <title>posts</title>
 </head>
 <body>
+
 <div>
+    <a href="{% url 'make_post' %}"> Make Post </a>
+</div>
+
+<div>
+{#    The object here is the instance of Post class!! #}
     {% for post in object_list %}
 {#        find the url name "post_detail", post.id is the paratmeter for the url#}
+{#        <a> is an action, triggered by clicking the figure, put the action place in between <a></a>#}
+{#        "post.id" is the click place where action will be triggered#}
         <a href="{% url 'post_detail' post.id %}">
             <img src="/{{ post.image }}" width="500" height="400">
         </a>
     {% endfor %}
 </div>
+
 </body>
 </html>
