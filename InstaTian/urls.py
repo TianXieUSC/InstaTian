@@ -17,8 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+from Insta.views import SignUp
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # thrid way to add the url path
+    # third way to add the url path, continue to app 'insta' url path
     path('insta/', include('Insta.urls')),
+    path('auth/', include('django.contrib.auth.urls')),
+    # manually define the sign up view
+    path('auth/signup/', SignUp.as_view(), name='signup'),
 ]
+

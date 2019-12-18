@@ -32,8 +32,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
+    'django.contrib.auth',  # authentication
+    'django.contrib.contenttypes',  # authorization
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
@@ -124,3 +124,10 @@ STATIC_URL = '/static/'
 
 # manually set the static path
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+# manually set the redirect url after login
+LOGIN_REDIRECT_URL = 'posts'
+LOGOUT_REDIRECT_URL = 'posts'
+
+# customize the user model
+AUTH_USER_MODEL = 'Insta.InstaUser'
