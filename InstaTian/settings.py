@@ -25,7 +25,8 @@ SECRET_KEY = 'no8778n+3e2+&2%17lla115(a*e*&y%@+0z1y6&%ktcya(n6l_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# all host can visit the web
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # connect to the app that I have built
+    'whitenoise.runserver_nostatic',
     'Insta',
     'imagekit',
 ]
@@ -50,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'InstaTian.urls'
