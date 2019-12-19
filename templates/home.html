@@ -1,43 +1,52 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title> Page Title </title>
+    <meta charset="UTF-8">
+    <title>posts</title>
 </head>
-<!-- Things in body tag will be shown on web -->
+
+{% block content %}
 <body>
-	<h1 style="background-color: DodgerBlue;">
-		This is a Heading
-	</h1>
-	<p title="I am a tooltip" style="color:red">
-		This is a paragraph.
-	</p>
-	<hr>
-	<a href="https://www.w3schools.com/html/html_attributes.asp">
-		This is the learning materials.
-	</a>
-	<ul>
-		<li> https://www.w3schools.com/html/html_attributes.asp>Coffee</li>
-		<li>Milk</li>
-		<li>Coke</li>
-	</ul>
-	<img src="test_photo.jpg" width="208" height="284" alt="This is a view.">
-	<button>Click here!</button>
-	<hr>
-	<!-- HTML will remove all the blank -->
-	<p>
-		This is a test<br>
-		dfsa
-		dsafsdfsdfasfdsaf    dfaf
-	</p>
-	<br>
-	<pre>
-		This is a test
 
-		The setences show like this
+<ul>
+    {% if request.user.is_authenticated %}
+        <li>
+            <p> {{ request.user.username }} is logged in. </p>
+        </li>
+        <li>
+            <a href="{% url 'logout' %}"> Logout </a>
+        </li>
+    {% else %}
+        <li>
+            <a href="{% url 'login' %}"> Login </a>
+        </li>
+        <li>
+            <a href="{% url 'signup' %}"> Signup </a>
+        </li>
+    {% endif %}
+</ul>
 
-		It is nice
-	</pre>
-	<br>
-	<p style="font-family: courier;color:orange;text-align: center;">Change the font style</p>
+<div>
+    <a href="{% url 'make_post' %}"> Make Post </a>
+</div>
+
+<div>
+{#    The object here is the instance of Post class!! #}
+    {% for post in object_list %}
+{#        find the url name "post_detail", post.id is the paratmeter for the url#}
+{#        <a> is an action, triggered by clicking the figure, put the action place in between <a></a>#}
+{#        "post.id" is the click place where action will be triggered#}
+        <a href="{% url 'post_detail' post.id %}">
+            <img src="/{{ post.image }}" width="500" height="400">
+        </a>
+    {% endfor %}
+</div>
+
 </body>
+
+{% endblock content %}
 </html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+{#        load the static file path #}
+        {% load static %}
+        <meta charset="utf-8">
+{#        change the view when viewing on different devices e.g. phone#}
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> Tian Insta</title>
+{#        define the web style in CSS file#}
+{#        bootstrap / font awesome (some icons) famous css library#}
+        <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'vendor/font-awesome-4.6.3/css/font-awesome.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    </head>
+    <body>
+
+        {% load static %}
+{#        include the code from header.html#}
+        {% include 'header.html' %}
+{#        class -- used to write css#}
+        <div class="content-wrapper">
+            <div class="container">
+{#            search the code, replace the code defined as 'content'#}
+                {% block content %}
+                {% endblock content%}
+            </div>
+        </div>
+
+        <script type="text/javascript" src="{% static 'js/jquery-3.1.0.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/ajax-csrf-auth.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+
+        {% block extrascript %}
+        {% endblock %}
+
+    </body>
+</html>

@@ -1,9 +1,12 @@
+{% extends 'base.html' %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>create post</title>
 </head>
+{% block content %}
 <body>
 <h1> New Post</h1>
 {#html form is to render a format for users#}
@@ -14,4 +17,5 @@
     <button type='submit' > Save </button>
 </form>
 </body>
+{% endblock content %}
 </html>
