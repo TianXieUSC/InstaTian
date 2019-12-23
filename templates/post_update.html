@@ -1,20 +1,12 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Post Update</title>
-</head>
 {% block content %}
-<body>
-<h1> Edit Post</h1>
-{#html form is to render a format for users#}
+
+<h1>Edit Post</h1>
 <form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type='submit' > Update </button>
+    <button type="submit">Update</button>
 </form>
-</body>
+
 {% endblock content %}
-</html>

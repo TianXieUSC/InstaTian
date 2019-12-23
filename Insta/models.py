@@ -49,10 +49,16 @@ class Post(models.Model):
         # related_name
         return self.likes.count()
 
+    def get_comment_count(self):
+        return self.comments.count()
+
     # once post has done, call this function, return to the post_detail html
     def get_absolute_url(self):
         # reverse function will go to urls.py to look for the url name
         return reverse("post_detail", args=[str(self.id)])
+
+    def __str__(self):
+        return self.title
 
 
 class Like(models.Model):

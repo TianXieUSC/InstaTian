@@ -22,7 +22,7 @@ from Insta.views import SignUp
 urlpatterns = [
     path('admin/', admin.site.urls),
     # third way to add the url path, continue to app 'insta' url path
-    path('', include('Insta.urls')),
+    path('insta/', include('Insta.urls')),
     path('auth/', include('django.contrib.auth.urls')),
     # manually define the sign up view
     path('auth/signup/', SignUp.as_view(), name='signup'),
