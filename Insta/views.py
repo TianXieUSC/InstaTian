@@ -75,7 +75,8 @@ class EditProfile(UpdateView, LoginRequiredMixin):
     model = InstaUser
     template_name = 'edit_profile.html'
     fields = ['profile_pic', 'username']
-    success_url = reverse_lazy("login")
+    login_url = 'login'
+    # success_url = reverse_lazy("login")
 
 
 # function based view

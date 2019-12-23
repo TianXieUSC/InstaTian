@@ -26,6 +26,9 @@ class InstaUser(AbstractUser):
         followers = UserConnection.objects.filter(following=self)
         return followers.filter(creator=user).exists()
 
+    def get_absolute_url(self):
+        return reverse("user_detail", args=[str(self.id)])
+
 
 # define the model
 class Post(models.Model):
@@ -43,6 +46,10 @@ class Post(models.Model):
         options={'quality': 100},
         blank=True,
         null=True,
+    )
+    posted_on = models.DateTimeField(
+        auto_now_add=True,
+        editable=False,
     )
 
     def get_like_count(self):
