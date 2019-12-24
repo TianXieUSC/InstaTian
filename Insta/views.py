@@ -162,5 +162,7 @@ def addComment(request):
 # TODO follow / unfollow: add ajax -- Done
 # TODO update profile -- Done
 # TODO make comments: updateview -- Done
+# TODO add timestamp -- Done
 
-# TODO add timestamp
+# TODO add the follower / following pages
+
