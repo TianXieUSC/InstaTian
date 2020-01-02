@@ -69,6 +69,17 @@
                     <span class="post-pk">{{ object.pk }}</span>
                 </div>
             </section>
+        {% if request.user.is_authenticated %}
+            <div class="name-buttons">
+                <a class="edit-desktop" href="{% url 'update_post' request.user.pk %}">
+                    <button class="edit-profile">Update Post</button>
+                </a>
+                <a class="edit-desktop" href="{% url 'delete_post' request.user.pk %}">
+                    <button class="edit-profile">Delete Post</button>
+                </a>
+            </div>
+        {% endif %}
+
         </div>
     </div>
 </div>
