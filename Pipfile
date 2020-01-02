@@ -1,0 +1,17 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+whitenoise = "==5.0.1"
+Pillow = "==6.2.1"
+Django = "*"
+django-imagekit = "*"
+gunicorn = "*"
+django-annoying = "*"
+
+[requires]
+python_version = "3.7"

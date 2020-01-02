@@ -78,6 +78,15 @@ class EditProfile(UpdateView, LoginRequiredMixin):
     login_url = 'login'
     # success_url = reverse_lazy("login")
 
+class ExploreView(LoginRequiredMixin, ListView):
+    model = Post
+    template_name = 'explore.html'
+    login_url = 'login'
+
+    def get_queryset(self):
+        return Post.objects.all().order_by('-posted_on')[:20]
+
+
 
 # function based view
 # response to ajax request
@@ -163,6 +172,7 @@ def addComment(request):
 # TODO update profile -- Done
 # TODO make comments: updateview -- Done
 # TODO add timestamp -- Done
+# TODO add explore -- Done
 
 # TODO add the follower / following pages
 
