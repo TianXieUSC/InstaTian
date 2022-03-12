@@ -7,7 +7,7 @@ verify_ssl = true
 
 [packages]
 whitenoise = "==5.0.1"
-Pillow = "==6.2.1"
+Pillow = "==9.0.1"
 Django = "*"
 django-imagekit = "*"
 gunicorn = "*"
